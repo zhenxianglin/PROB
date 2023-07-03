@@ -160,14 +160,15 @@ def get_args_parser():
     return parser
 
 def main(args):
-    if len(args.wandb_project)>0:
-        if len(args.wandb_name)>0:
-            wandb.init(project=args.wandb_project, entity="marvl", group=args.wandb_name)
-        else:
-            wandb.init(project=args.wandb_project, entity="marvl")
-        wandb.config = args
-    #else:
+    # if len(args.wandb_project)>0:
+    #     if len(args.wandb_name)>0:
+    #         wandb.init(project=args.wandb_project, entity="blastxiaol", group=args.wandb_name)
+    #     else:
+    #         wandb.init(project=args.wandb_project, entity="blastxiaol")
+    #     wandb.config = args
+    # else:
     #    wandb=None
+    wandb = None
 
     utils.init_distributed_mode(args)
     print("git:\n  {}\n".format(utils.get_sha()))
